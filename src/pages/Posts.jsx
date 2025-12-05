@@ -7,6 +7,10 @@ const Posts = () => {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState[true];
 
+function onSearch() {
+    
+}
+
   useEffect(() => {
     async function fetchPosts() {
       const { data } = await axios.get(
@@ -24,7 +28,7 @@ const Posts = () => {
         <div className="post__search--container">
           <label className="post__search--label">Search by Id</label>
           <input type="number" />
-          <button>Enter</button>
+          <button onClick={() => onSerch()}>Enter</button>
         </div>
       </div>
       {loading 
@@ -38,8 +42,8 @@ const Posts = () => {
         </div>
       </div>
       )) 
-      : posts.map((post) => (
-        <div className="post">
+      : posts.map(post => (
+        <div className="post" key={post.id}>
           <div className="post__title">{post.title}</div>
           <p className="post__body">{post.body}</p>
         </div>
